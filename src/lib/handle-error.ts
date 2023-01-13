@@ -1,26 +1,15 @@
 import { ServerResponse } from 'http';
-import { NotFoundError, ValidationUuidError } from '../err';
+import { HTTPCodes } from '../enum/http-codes';
 
 function handleError(func: () => void, response: ServerResponse) {
     return function() {
         try {
             func();
-        } catch(err) {
-            if(err instanceof NotFoundError) {
-                response.writeHead(+err.name);
-                response.end(err.message);
-            } else if(err instanceof ValidationUuidError) {
-                response.writeHead(+err.name);
-                response.end(err.message);
-            } else if(err instanceof SyntaxError) {
-                response.writeHead(400);
-                response.end('SyntaxError');
-            } else {
-                response.writeHead(500);
-                response.end('Server error');
+        } catch (err) {
+            if (err instanceof Error) {
+                response.writeHead(Number(err.name) || Number(HTTPCodes.SERVER_ERROR));
+                response.end(JSON.stringify({message: err.message}));
             }
-
-            console.log((err as Error).message);
         }
     };
 }

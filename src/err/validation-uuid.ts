@@ -1,8 +1,8 @@
 class ValidationUuidError extends Error {
-    constructor() {
+    constructor(message: string) {
         super();
         this.name = '400';
-        this.message = 'ValidationUuidError';
+        this.message = message;
     }
 }
 

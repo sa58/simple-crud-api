@@ -1,3 +1,4 @@
+import { HTTPCodes } from "./enum/http-codes";
 import { NotFoundError } from "./err";
 import { User } from "./user-type";
 
@@ -16,7 +17,7 @@ class UserRepository {
         const pos = this.users.findIndex(user => user.id === uuid)
 
         if(pos < 0) {
-            throw new NotFoundError();
+            throw new NotFoundError("User doesn't exist");
         }
 
         const [user] =  this.users.slice(pos, pos + 1);

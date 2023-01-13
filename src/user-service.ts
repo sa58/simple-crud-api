@@ -14,7 +14,7 @@ class UserService {
         const [,,, uuid] = url.split('/');
 
         if(!validate(uuid)) {
-            throw new ValidationUuidError();
+            throw new ValidationUuidError("d");
         }
 
         return this.userRepository.findUser(uuid);
@@ -22,7 +22,7 @@ class UserService {
 
     public createUser(data: Omit<User, "id">): User {
         if(!data.username || !data.age || !data.hobbies) {
-            throw new ValidationUuidError();
+            throw new ValidationUuidError("d");
         } 
 
         const newUser = { id: v4(), ...data };

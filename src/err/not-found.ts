@@ -1,8 +1,10 @@
+import { HTTPCodes } from "../enum/http-codes";
+
 class NotFoundError extends Error {
-    constructor() {
+    constructor(message: string) {
         super();
-        this.name = '404';
-        this.message = 'RESOURCE_NOT_FOUND';
+        this.name = HTTPCodes.NOT_FOUND;
+        this.message = message;
     }
 }
 
