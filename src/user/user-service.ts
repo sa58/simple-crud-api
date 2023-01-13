@@ -37,6 +37,28 @@ class UserService {
 
         return this.userRepository.createUser(newUser);
     }
+
+    public updateUser(url: string, data: User): User {
+        const [,,, uuid] = url.split('/');
+
+        if(!validate(uuid)) {
+            throw new ValidationError("Uuid is not valid");
+        }
+
+        if(!data.username) {
+            throw new ValidationError("Field 'username' is required");
+        }
+
+        if(!data.age) {
+            throw new ValidationError("Field 'age' is required");
+        }
+
+        if(!data.hobbies) {
+            throw new ValidationError("Field 'hobbies' is required");
+        }
+
+        return this.userRepository.updateUser(uuid, data);
+    }
 }
 
 export {

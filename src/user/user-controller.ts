@@ -36,6 +36,10 @@ class UserController {
         if (this.method === 'POST') {
             this.createUser();
         }
+
+        if (this.method === 'PUT') {
+            this.updateUser();
+        }
     }
 
     public getUsers(): void {
@@ -65,6 +69,24 @@ class UserController {
                 rawData += chunk;
             })
             .on('end', handleError(create, this.response));
+    }
+
+    public updateUser(): void {
+        let rawData = '';
+
+        const update = () => {
+            const data = JSON.parse(rawData);
+
+            const user = this.userService.updateUser(this.url, data);
+            this.response.writeHead(Number(HTTPCodes.CREATED));
+            this.response.end(JSON.stringify(user));
+        }
+
+        this.request
+            .on('data', (chunk: string) => {
+                rawData += chunk;
+            })
+            .on('end', handleError(update, this.response));
     }
 }
 
