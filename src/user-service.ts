@@ -14,7 +14,7 @@ class UserService {
         const [,,, uuid] = url.split('/');
 
         if(!validate(uuid)) {
-            throw new ValidationUuidError("d");
+            throw new ValidationError("Uuid is not valid");
         }
 
         return this.userRepository.findUser(uuid);
