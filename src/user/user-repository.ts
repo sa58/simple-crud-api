@@ -1,4 +1,4 @@
-import { NotFoundError } from "./err";
+import { NotFoundError } from "../err";
 import { User } from "./user-type";
 
 class UserRepository {

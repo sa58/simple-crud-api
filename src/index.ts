@@ -1,10 +1,10 @@
-import * as dotenv from 'dotenv';
-import http, { IncomingMessage, ServerResponse } from 'http';
-import { RESOURCE_USERS } from './constants';
-import { NotFoundError } from './err';
-import { handleError } from './lib/handle-error';
-import { isResourceValid } from './lib/is-resource-valid';
-import { UserController } from './user-controller';
+import * as dotenv from "dotenv";
+import http, { IncomingMessage, ServerResponse } from "http";
+import { RESOURCE_USERS } from "./constants";
+import { NotFoundError } from "./err";
+import { handleError } from "./lib/handle-error";
+import { isResourceValid } from "./lib/is-resource-valid";
+import { UserController } from "./user/user-controller";
 
 dotenv.config();
 

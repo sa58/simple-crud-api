@@ -1,7 +1,7 @@
 import { IncomingMessage, ServerResponse } from "http";
-import { RESOURCE_USERS } from "./constants";
-import { HTTPCodes } from "./enum/http-codes";
-import { handleError } from "./lib/handle-error";
+import { RESOURCE_USERS } from "../constants";
+import { HTTPCodes } from "../enum/http-codes";
+import { handleError } from "../lib/handle-error";
 import { UserService } from "./user-service";
 
 class UserController {

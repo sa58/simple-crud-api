@@ -1,5 +1,5 @@
-import { ServerResponse } from 'http';
-import { HTTPCodes } from '../enum/http-codes';
+import { ServerResponse } from "http";
+import { HTTPCodes } from "../enum/http-codes";
 
 function handleError(func: () => void, response: ServerResponse) {
     return function() {
