@@ -59,6 +59,16 @@ class UserService {
 
         return this.userRepository.updateUser(uuid, data);
     }
+
+    public deleteUser(url: string): void {
+        const [,,, uuid] = url.split('/');
+
+        if(!validate(uuid)) {
+            throw new ValidationError("Uuid is not valid");
+        }
+
+        this.userRepository.deleteUser(uuid);
+    }
 }
 
 export {

@@ -34,6 +34,16 @@ class UserRepository {
         UserRepository.users.push(user);
         return user;
     }
+
+    public deleteUser(uuid: string): void {
+        const pos = UserRepository.users.findIndex(user => user.id === uuid)
+
+        if(pos < 0) {
+            throw new NotFoundError("User doesn't exist");
+        }
+
+        UserRepository.users.splice(pos, 1);
+    }
 }
 
 export {

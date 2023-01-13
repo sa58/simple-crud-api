@@ -40,6 +40,10 @@ class UserController {
         if (this.method === 'PUT') {
             this.updateUser();
         }
+
+        if (this.method === 'DELETE') {
+            this.deleteUser();
+        }
     }
 
     public getUsers(): void {
@@ -87,6 +91,13 @@ class UserController {
                 rawData += chunk;
             })
             .on('end', handleError(update, this.response));
+    }
+
+    public deleteUser(): void {
+        this.userService.deleteUser(this.url);
+
+        this.response.writeHead(Number(HTTPCodes.DELETED));
+        this.response.end('Resource is deleted');
     }
 }
 
