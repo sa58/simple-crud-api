@@ -1,8 +1,10 @@
+import { HTTPCodes } from "../enum/http-codes";
+
 class ValidationError extends Error {
-    constructor() {
+    constructor(message: string) {
         super();
-        this.name = '400';
-        this.message = 'VALIDATION';
+        this.name = HTTPCodes.NOT_FOUND;
+        this.message = message;
     }
 }
 

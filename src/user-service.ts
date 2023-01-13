@@ -1,5 +1,5 @@
 import { v4, validate } from "uuid";
-import { ValidationUuidError } from "./err";
+import { ValidationError, ValidationUuidError } from "./err";
 import { UserRepository } from "./user-repository"
 import { User } from "./user-type";
 
@@ -21,9 +21,17 @@ class UserService {
     }
 
     public createUser(data: Omit<User, "id">): User {
-        if(!data.username || !data.age || !data.hobbies) {
-            throw new ValidationUuidError("d");
-        } 
+        if(!data.username) {
+            throw new ValidationError("Field 'username' is required");
+        }
+
+        if(!data.age) {
+            throw new ValidationError("Field 'age' is required");
+        }
+
+        if(!data.hobbies) {
+            throw new ValidationError("Field 'hobbies' is required");
+        }
 
         const newUser = { id: v4(), ...data };
 

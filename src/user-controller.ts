@@ -1,5 +1,6 @@
 import { IncomingMessage, ServerResponse } from "http";
 import { RESOURCE_USERS } from "./constants";
+import { HTTPCodes } from "./enum/http-codes";
 import { handleError } from "./lib/handle-error";
 import { UserService } from "./user-service";
 
@@ -39,6 +40,7 @@ class UserController {
 
     public getUsers(): void {
         const users = this.userService.getUsers();
+
         this.response.end(JSON.stringify(users));
     }
 
@@ -54,7 +56,8 @@ class UserController {
             const data = JSON.parse(rawData);
 
             const user = this.userService.createUser(data);
-            this.response.end(user);
+            this.response.writeHead(Number(HTTPCodes.CREATED));
+            this.response.end(JSON.stringify(user));
         }
 
         this.request
