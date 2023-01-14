@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:dev": "nodemon ./src/index.ts",
+    "start:dev": "nodemon ./src/app/index.ts",
     "start:prod": "tsc --build && node ./build/index.js",
-    "test": "jest"
+    "test": "jest --verbose"
   },
   "repository": {
     "type": "git",

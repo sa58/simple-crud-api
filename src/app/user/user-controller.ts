@@ -82,7 +82,7 @@ class UserController {
             const data = JSON.parse(rawData);
 
             const user = this.userService.updateUser(this.url, data);
-            this.response.writeHead(Number(HTTPCodes.CREATED));
+            this.response.writeHead(Number(HTTPCodes.OK));
             this.response.end(JSON.stringify(user));
         }
 
@@ -97,7 +97,7 @@ class UserController {
         this.userService.deleteUser(this.url);
 
         this.response.writeHead(Number(HTTPCodes.DELETED));
-        this.response.end('Resource is deleted');
+        this.response.end();
     }
 }
 
