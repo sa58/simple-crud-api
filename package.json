@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start:dev": "nodemon ./src/app/index.ts",
-    "start:prod": "tsc --build && node ./build/index.js",
+    "start:prod": "tsc --build && node ./build/app/index.js",
     "test": "jest --verbose"
   },
   "repository": {
