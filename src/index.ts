@@ -8,7 +8,7 @@ import { UserController } from "./user/user-controller";
 
 dotenv.config();
 
-const app = (request: IncomingMessage, response: ServerResponse) => {
+export const app = (request: IncomingMessage, response: ServerResponse) => {
     response.setHeader('Content-Type', 'application/json');
 
     const initializeApp = () => {
