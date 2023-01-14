@@ -1,9 +1,9 @@
 import { IncomingMessage, ServerResponse } from "http";
-import { handleError } from "../lib/handle-error";
+import { handleError } from "../../lib/handle-error";
 import { UserService } from "./user-service";
-import { HTTPCodes } from "../enum/http-codes";
-import { RESOURCE_USERS } from "../constants";
-import { ValidationError } from "../err";
+import { HTTPCodes } from "../../enum/http-codes";
+import { RESOURCE_USERS } from "../../constants";
+import { ValidationError } from "../../err";
 
 class UserController {
     private url: string;

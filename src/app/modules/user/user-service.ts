@@ -1,5 +1,5 @@
 import { v4, validate } from "uuid";
-import { ValidationError } from "../err";
+import { ValidationError } from "../../err";
 import { UserRepository } from "./user-repository"
 import { User } from "./user-type";
 

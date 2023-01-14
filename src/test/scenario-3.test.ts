@@ -1,5 +1,5 @@
 import { RESOURCE_USERS } from "../app/constants";
-import { User } from "../app/user/user-type";
+import { User } from "../app/modules/user/user-type";
 import { request } from "./lib/request";
 
 let user: User = {
