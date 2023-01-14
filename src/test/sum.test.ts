@@ -1,5 +1,5 @@
 import request from "supertest";
-import { app } from "..";
+import { app } from "../app/index";
 
 
 // const sum = require('./sum');

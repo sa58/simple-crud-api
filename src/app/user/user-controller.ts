@@ -1,8 +1,8 @@
 import { IncomingMessage, ServerResponse } from "http";
-import { RESOURCE_USERS } from "../constants";
-import { HTTPCodes } from "../enum/http-codes";
 import { handleError } from "../lib/handle-error";
 import { UserService } from "./user-service";
+import { HTTPCodes } from "../enum/http-codes";
+import { RESOURCE_USERS } from "../constants";
 
 class UserController {
     private url: string;
