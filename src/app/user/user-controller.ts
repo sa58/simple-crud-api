@@ -3,6 +3,7 @@ import { handleError } from "../lib/handle-error";
 import { UserService } from "./user-service";
 import { HTTPCodes } from "../enum/http-codes";
 import { RESOURCE_USERS } from "../constants";
+import { ValidationError } from "../err";
 
 class UserController {
     private url: string;
@@ -61,11 +62,15 @@ class UserController {
         let rawData = '';
 
         const create = () => {
-            const data = JSON.parse(rawData);
+            if (rawData && typeof JSON.parse(rawData) === 'object') {
+                const data = JSON.parse(rawData);
+                const user = this.userService.createUser(data);
 
-            const user = this.userService.createUser(data);
-            this.response.writeHead(Number(HTTPCodes.CREATED));
-            this.response.end(JSON.stringify(user));
+                this.response.writeHead(Number(HTTPCodes.CREATED));
+                this.response.end(JSON.stringify(user));
+            } else {
+                throw new ValidationError("Add required fields: username, age, hobbies");
+            }
         }
 
         this.request
