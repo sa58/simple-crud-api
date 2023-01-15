@@ -6,6 +6,7 @@
 #### Install project
 ```
 git clone {repository_url}
+git checkout dev
 npm install
 ```
 Create `.env` file with content from `.env.example`
