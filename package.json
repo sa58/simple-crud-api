@@ -6,6 +6,7 @@
   "scripts": {
     "start:dev": "nodemon ./src/app/index.ts",
     "start:prod": "tsc --build && node ./build/app/index.js",
+    "start:multi": "nodemon ./src/app/multi.ts",
     "test": "jest --verbose"
   },
   "repository": {
